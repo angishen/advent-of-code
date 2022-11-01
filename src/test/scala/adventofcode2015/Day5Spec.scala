@@ -1,6 +1,6 @@
 package adventofcode2015
 
-import adventofcode2015.Day5.{isNiceString, isNiceStringTailRec, isNiceStringWithFolds}
+import adventofcode2015.Day5.{isNiceString, isNiceStringPt2, isNiceStringTailRec, isNiceStringWithFolds}
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.wordspec.AnyWordSpec
 
@@ -53,17 +53,17 @@ class Day5Spec extends AnyWordSpec with Matchers {
     }
   }
 
-//  "isNiceStringNew" should {
-//    "check if a string is naughty or nice" in {
-//      val input1 = "qjhvhtzxzqqjkmpb"
-//      val input2 = "xxyxx"
-//      val input3 = "uurcxstgmygtbstg"
-//      val input4 = "ieodomkazucvgmuy"
-//
-//      isNiceStringTailRec(input1) shouldBe true
-//      isNiceStringTailRec(input2) shouldBe true
-//      isNiceStringTailRec(input3) shouldBe false
-//      isNiceStringTailRec(input4) shouldBe false
-//    }
-//  }
+  "isNiceStringPt2" should {
+    "check if a string is naughty or nice" in {
+      val input1 = "qjhvhtzxzqqjkmpb"
+      val input2 = "xxyxx"
+      val input3 = "uurcxstgmygtbstg"
+      val input4 = "ieodomkazucvgmuy"
+
+      isNiceStringPt2(input1) shouldBe true
+      isNiceStringPt2(input2) shouldBe true
+      isNiceStringPt2(input3) shouldBe false
+      isNiceStringPt2(input4) shouldBe false
+    }
+  }
 }

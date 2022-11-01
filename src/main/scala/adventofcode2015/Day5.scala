@@ -104,13 +104,15 @@ object Day5 extends App {
     (containsForbiddenStrings || vowelCountGreaterThan2) && containsDoubleLetter
   }
 
-//  def isNiceString2(input: String): Boolean = {
-//    val substrs2 = input.sliding(2, 1)
-//    val substrs3 = input.sliding(3, 1)
-//
-//    val hasRepeatSubstr = substrs3.foldLeft(false)((hasSubstr, ss) => hasSubstr || ss(0) == ss.last)
-//
-//  }
+  def isNiceStringPt2(input: String): Boolean = {
+    val strPairRegex = raw"([a-z]{2}).*\1".r
+    val repeatStrRegex = raw"([a-z])[a-z]\1".r
+
+    // The following would work if the middle letter had to be different from the two repeating letters
+    // val repeatStrRegex = raw"([a-z])(?!\1)([a-z])\1".r
+
+    strPairRegex.unanchored.matches(input) && repeatStrRegex.unanchored.matches(input)
+  }
 
   private def readFromfile(fileName: String): List[String] = Source.fromResource(fileName).getLines.toList
 
@@ -119,11 +121,13 @@ object Day5 extends App {
 
   val input = readFromfile("niceOrNaughtyStrings.txt")
 
-  println(time { niceStrCount(input)(isNiceString) })
-  println(time { niceStrCount(input)(isNiceStringTailRec) })
-  println(time { niceStrCount(input)(isNiceString) })
-  println(time { niceStrCount(input)(isNiceStringTailRec) })
-  println(time { niceStrCount(input)(isNiceStringWithFolds) })
-  println(time { niceStrCount(input)(isNiceString3) })
+  println(niceStrCount(input)(isNiceStringPt2))
+
+//  println(time { niceStrCount(input)(isNiceString) })
+//  println(time { niceStrCount(input)(isNiceStringTailRec) })
+//  println(time { niceStrCount(input)(isNiceString) })
+//  println(time { niceStrCount(input)(isNiceStringTailRec) })
+//  println(time { niceStrCount(input)(isNiceStringWithFolds) })
+//  println(time { niceStrCount(input)(isNiceString3) })
 
 }
