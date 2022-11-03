@@ -109,7 +109,7 @@ object Day5 extends App {
     val repeatStrRegex = raw"([a-z])[a-z]\1".r
 
     // The following would work if the middle letter had to be different from the two repeating letters
-    // val repeatStrRegex = raw"([a-z])(?!\1)([a-z])\1".r
+    // val repeatStrRegex = raw"([a-z])(?!\1)[a-z]\1".r
 
     strPairRegex.unanchored.matches(input) && repeatStrRegex.unanchored.matches(input)
   }
