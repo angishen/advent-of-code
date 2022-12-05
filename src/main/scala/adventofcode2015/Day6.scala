@@ -41,13 +41,15 @@ object Day6 extends App {
       lightGrid(i)(j) = 0
     }
 
+    // fill grid
     steps.foreach {
       step => {
         for (i <- step.start.x to step.end.x; j <- step.start.y to step.end.y) {
           val light = lightGrid(i)(j)
           if (instructionSet == Part1) {
             step.instruction match {
-              case Toggle => lightGrid(i)(j) = if (light == 1) 0 else 1
+              // You can use XOR to toggle a value!
+              case Toggle => lightGrid(i)(j) ^= 1
               case TurnOn => lightGrid(i)(j) = 1
               case TurnOff => lightGrid(i)(j) = 0
             }
@@ -64,8 +66,7 @@ object Day6 extends App {
 
     val lightCount = lightGrid.foldLeft(0)(
       (totalCount, row) => {
-        val rowCount = row.sum
-        totalCount + rowCount
+        totalCount + row.sum
       }
     )
 
