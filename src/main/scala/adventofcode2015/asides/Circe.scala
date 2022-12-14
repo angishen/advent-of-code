@@ -38,7 +38,7 @@ object Circe extends App {
 
   // semi-auto
   case class Menu(value: String, popUp: PopUp)
-  case class PopUp(menuItem: List[MenuItem])
+  case class PopUp(menuItems: List[MenuItem])
   case class MenuItem(value: String, onClick: Option[String])
 
 //  implicit val menuDecoder: Decoder[Menu] = deriveDecoder[Menu]
@@ -67,9 +67,40 @@ object Circe extends App {
     } yield MenuItem(value, onClick)
   }
 
+  implicit val MenuEncoder: Encoder[Menu] = (a: Menu) => {
+    Json.obj(
+      ("value", Json.fromString(a.value)),
+      ("popup", a.popUp.asJson)
+    )
+  }
+
+  implicit val PopUpEncoder: Encoder[PopUp] = (a: PopUp) => {
+    Json.obj(
+      ("menuitems", a.menuItems.map(_.asJson).asJson)
+    )
+  }
+
+  implicit val MenuItemEncoder: Encoder[MenuItem] = (a: MenuItem) => {
+    val onClick = a.onClick match {
+      case Some(v) => v
+      case None => null
+    }
+
+    Json.obj(
+      ("value", Json.fromString(a.value)),
+      ("onclick", Json.fromString(onClick))
+    )
+  }
+
+
   val menuJson = parse(Source.fromResource("menu.json").mkString).getOrElse(Json.Null)
 
   val decodedMenu = menuJson.hcursor.downField("menu").as[Menu]
 
+  val myMenu = Menu("File", PopUp(List(MenuItem("New", Some("CreateNewDoc()")), MenuItem("Open", Some("OpenDoc()")))))
+
+  val myJson = Json.obj("menu" -> myMenu.asJson)
+
   println(decodedMenu)
+  println(myJson.dropNullValues.spaces2)
 }
