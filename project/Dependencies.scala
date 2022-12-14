@@ -6,6 +6,14 @@ object Dependencies {
   // libraries
   val ScalaParserCombinators = "org.scala-lang.modules" %% "scala-parser-combinators" % "2.1.1"
 
+  val circeVersion = "0.14.1"
+
+  val circeDependencies = Seq(
+    "io.circe" %% "circe-core",
+    "io.circe" %% "circe-generic",
+    "io.circe" %% "circe-parser"
+  ).map(_ % circeVersion)
+
   val dependencies = Seq(
     ScalaParserCombinators
   )
@@ -14,5 +22,5 @@ object Dependencies {
     scalaTest,
   ).map(_ % "test")
 
-  val allDependencies = dependencies ++ testDependencies
+  val allDependencies = dependencies ++ testDependencies ++ circeDependencies
 }

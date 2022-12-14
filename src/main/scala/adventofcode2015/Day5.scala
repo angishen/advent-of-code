@@ -119,7 +119,7 @@ object Day5 extends App {
   def niceStrCount(input: List[String])(isNiceStringFn: String => Boolean): Int =
     input.foldLeft(0)((niceStrCount, str) => if (isNiceStringFn(str)) niceStrCount + 1 else niceStrCount)
 
-  val input = readFromfile("niceOrNaughtyStrings.txt")
+  val input = readFromfile("day5Input.txt")
 
   println(niceStrCount(input)(isNiceStringPt2))
 

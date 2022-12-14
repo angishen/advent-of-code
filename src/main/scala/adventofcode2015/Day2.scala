@@ -46,7 +46,7 @@ object Day2 extends App {
   def getTotalRibbonLength(boxes: List[Box]): Int =
     boxes.foldLeft(0)((totalLength, box) => calculateRibbonLength(box) + totalLength)
 
-  val boxes = readBoxesFromFile("boxes.txt")
+  val boxes = readBoxesFromFile("day2Input.txt")
 
   println(getTotalArea(boxes))
   println(getTotalRibbonLength(boxes))

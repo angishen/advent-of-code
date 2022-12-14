@@ -98,7 +98,7 @@ object Day6 extends App {
     rawInput.map(parseInstruction)
   }
 
-  val input = readFromFileAndParse("lightSteps.txt")
+  val input = readFromFileAndParse("day6Input.txt")
   println(setupLights(input, Part1))
   println(setupLights(input, Part2))
 }
