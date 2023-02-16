@@ -104,17 +104,15 @@ object Feb13 extends App {
   */
 
   class Trie {
-    class Node(var hasValue: Boolean, val children: mutable.Map[Char, Node] = mutable.Map())
+    class Node(val children: mutable.Map[Char, Node] = mutable.Map())
 
-    val root = new Node(false)
+    val root = new Node()
 
     def add(s: String): Unit = {
       var current = root
       for (c <- s) {
-        current = current.children.getOrElseUpdate(c, new Node(false))
+        current = current.children.getOrElseUpdate(c, new Node())
       }
-
-      current.hasValue = true
     }
 
     def findLongestPrefix(): String = {
@@ -141,6 +139,7 @@ object Feb13 extends App {
     // find longest prefix
     val longestPrefix = myTrie.findLongestPrefix()
 
+    // address edge case where prefix is longer than shortest string in list
     val shortestStr = strs.minBy(_.length)
 
     if (longestPrefix.length > shortestStr.length) shortestStr else longestPrefix
