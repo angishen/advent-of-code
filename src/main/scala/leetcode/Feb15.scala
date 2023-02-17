@@ -2,7 +2,7 @@ package leetcode
 
 import scala.collection.mutable
 
-object Feb15 {
+object Feb15 extends App {
   /*
   You are climbing a staircase. It takes n steps to reach the top.
   Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
@@ -16,6 +16,7 @@ object Feb15 {
   def runningSum(nums: Array[Int]): Array[Int] = {
     val res = mutable.ArrayDeque[Int]()
 
+    // Seems ick to be mutating state from inside a fold but idk it works ¯\_(ツ)_/¯
     nums.foldLeft(0)((acc, num) => {
       res.append(acc + num)
       acc + num
