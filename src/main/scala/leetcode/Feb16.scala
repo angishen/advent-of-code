@@ -28,13 +28,6 @@ object Feb16 extends App {
 
     sortedBoundary
   }
-
-  /*
-    Given an integer numRows, return the first numRows of Pascal's triangle.
-  */
-  def pascalsTriangle(numRows: Int): List[List[Int]] = {
-    def ptHelper(row: List[Int]): List[List[Int]] = {
-
-    }
-  }
 }
+
+
