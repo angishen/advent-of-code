@@ -6,7 +6,7 @@ import scala.collection.mutable
 object Feb13 extends App {
 
   /*
-   Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+   1. Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
    */
 
   def twoSum(nums: Array[Int], target: Int): Array[Int] = {
@@ -25,7 +25,7 @@ object Feb13 extends App {
   }
 
   /*
-  Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+  20. Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
 
   An input string is valid if:
   - Open brackets must be closed by the same type of brackets.
@@ -60,7 +60,7 @@ object Feb13 extends App {
   }
 
   /*
-  Given an array of integers arr, return true if the number of occurrences of each value in the array is unique or false otherwise.
+  1207. Given an array of integers arr, return true if the number of occurrences of each value in the array is unique or false otherwise.
   */
 
   def uniqueOccurrences(arr: Array[Int]): Boolean = {
@@ -77,7 +77,7 @@ object Feb13 extends App {
   }
 
   /*
-  You are given an array prices where prices[i] is the price of a given stock on the ith day.
+  121. You are given an array prices where prices[i] is the price of a given stock on the ith day.
 
   You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.
 
@@ -98,7 +98,7 @@ object Feb13 extends App {
   }
 
   /*
-  Write a function to find the longest common prefix string amongst an array of strings.
+  14. Write a function to find the longest common prefix string amongst an array of strings.
 
   If there is no common prefix, return an empty string "".
   */
