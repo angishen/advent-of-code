@@ -1,7 +1,5 @@
 package leetcode
 
-import scala.collection.mutable
-
 object Mar07 extends App {
   /*
   Given a string s, reverse only all the vowels in the string and return it.
