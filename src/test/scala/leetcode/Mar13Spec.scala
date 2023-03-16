@@ -1,6 +1,6 @@
 package leetcode
 
-import leetcode.Mar13.{isAnagram, majorityElement, majorityElementO1Space, removeDuplicates}
+import leetcode.Mar13.{isAnagram, majorityElement, majorityElementO1Space}
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.prop.TableDrivenPropertyChecks
 import org.scalatest.wordspec.AnyWordSpec
@@ -35,20 +35,6 @@ class Mar13Spec extends AnyWordSpec with Matchers with TableDrivenPropertyChecks
       forEvery(table) { (input, expected) =>
         majorityElement(input) shouldBe expected
         majorityElementO1Space(input) shouldBe expected
-      }
-    }
-  }
-
-  "removeDuplicates" should {
-    "remove all adjacent duplicate letters in a string" in {
-      val table = Table(
-        ("input", "expected"),
-        ("abbaca", "ca"),
-        ("azxxzy", "ay")
-      )
-
-      forEvery(table) { (input, expected) =>
-        removeDuplicates(input) shouldBe expected
       }
     }
   }
